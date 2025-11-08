@@ -25,86 +25,88 @@
 ## ✅ Phase 1: Data Preparation
 
 ### 1.1 Normalize Raw Job Data
-- [ ] **(b turn)** Open: `raw/foorila raw.csv`
-- [ ] **(b turn)** Check: What columns exist? (title, company, description, etc.)
-- [ ] **(b turn)** Create: `scripts/normalize_jobs.py`
-- [ ] **(b turn)** Write script to:
-  - Read `raw/foorila raw.csv`
-  - Standardize column names
-  - Clean job descriptions
-  - Save to `data/jobs_normalized.csv`
-- [ ] **(b turn)** Run: `python scripts/normalize_jobs.py`
-- [ ] **(b turn)** Verify: `data/jobs_normalized.csv` created with clean data
+- [x] ✅ **(b turn)** Opened: `raw/foorila raw.csv` (16 jobs, no description column)
+- [x] ✅ **(b turn)** Checked: Columns = company, title, location, salary, URLs (no description)
+- [x] ✅ **(b turn)** Created: `scripts/normalize_jobs.py` ✅
+- [x] ✅ **(b turn)** Script does:
+  - Reads `raw/foorila raw.csv`
+  - Creates descriptions from metadata (title + company + location + salary)
+  - Standardizes column names
+  - Saves to `data/jobs_normalized.csv`
+- [x] ✅ **(b turn)** Ran: `python scripts/normalize_jobs.py` ✅
+- [x] ✅ **(b turn)** Verified: `data/jobs_normalized.csv` created with 16 jobs + descriptions ✅
 
 ### 1.2 Prepare Resume Data
-- [ ] **(b turn)** Check: `resume.json` structure
-- [ ] **(b turn)** Verify: Skills are in format: `{"skill_name": weight}`
-- [ ] **(b turn)** Create: `scripts/prepare_resume_for_embedding.py`
-- [ ] **(b turn)** Write script to:
-  - Extract skills from `resume.json`
-  - Create text representation: "Skills: python(10), sql(9), ml(8)..."
-  - Save to `data/resume_text.txt` or keep in memory
+- [x] ✅ **(b turn)** Checked: `resume.json` structure ✅
+- [x] ✅ **(b turn)** Verified: Skills are in format: `{"skill_name": weight}` ✅
+- [x] ✅ **(b turn)** Created: `langchains/resume_embed_chain.py` (includes text preparation) ✅
+- [x] ✅ **(b turn)** Function `create_resume_text()` does:
+  - Extracts skills from `resume.json`
+  - Creates text representation: "Skills: python(10), sql(9), ml(8)..."
+  - Includes projects, experience, etc.
+  - Keeps in memory (no file needed)
 
 ### 1.3 Create Data Sync Script
-- [ ] **(b turn)** Create: `scripts/sync_data.sh`
+- [ ] **(b turn)** Create: `scripts/sync_data.sh` (optional - data already in place)
 - [ ] **(b turn)** Write script to:
-  - Copy `resume.json` → `data/resume.json`
-  - Copy normalized jobs → `data/jobs_normalized.csv`
+  - Copy `resume.json` → `data/resume.json` (or use directly)
+  - Copy normalized jobs → `data/jobs_normalized.csv` ✅ (already done)
   - Copy `rulebook.yaml` → `data/rulebook.yaml`
 - [ ] **(b turn)** Make executable: `chmod +x scripts/sync_data.sh`
 - [ ] **(b turn)** Test: `./scripts/sync_data.sh`
+
+**Note:** Data already normalized, can skip this step or create for future updates.
 
 ---
 
 ## ✅ Phase 2: LangChain Setup
 
 ### 2.1 Install Dependencies
-- [ ] **(b turn)** Create: `requirements_vector.txt`
-- [ ] **(b turn)** Add dependencies:
-  ```
-  langchain>=0.1.0
-  langchain-community>=0.0.20
-  langchain-openai>=0.0.5
-  openai>=1.0.0
-  chromadb>=0.4.0
-  faiss-cpu>=1.7.4
-  pandas>=2.0.0
-  duckdb>=0.9.0
-  python-dotenv>=1.0.0
-  rich>=13.0.0
-  ```
+- [ ] **(b turn)** Created: `requirements_vector.txt` ✅ (already done)
 - [ ] **(b turn)** Install: `pip install -r requirements_vector.txt`
 - [ ] **(b turn)** Verify: `python -c "import langchain; print('OK')"`
+- [ ] **(b turn)** Verify: `python -c "import chromadb; print('OK')"`
+- [ ] **(b turn)** Verify: `python -c "from sentence_transformers import SentenceTransformer; print('OK')"`
+
+**Note:** Using free options first:
+- **sentence-transformers** (free, local, no API)
+- **Gemini** (free tier)
+- **ChromaDB** (free, local)
+- OpenAI as fallback only
 
 ### 2.2 Set Up Environment
-- [ ] **(b turn)** Create: `.env.example` (if not exists)
-- [ ] **(b turn)** Add: `OPENAI_API_KEY=your_key_here`
-- [ ] **(b turn)** Copy: `cp .env.example .env`
-- [ ] **(b turn)** Add your OpenAI API key to `.env`
-- [ ] **(b turn)** Verify: `.env` is in `.gitignore`
+- [ ] **(b turn)** Check: `.env` file exists ✅ (already created)
+- [ ] **(b turn)** Verify: API keys added to `.env`:
+  - `GEMINI_API_KEY` ✅ (free tier)
+  - `GLM_API_KEY` ✅ (free)
+  - `FIREWORK_API_KEY` ✅ (cheap)
+  - `OPENAI_API_KEY` ✅ (fallback only)
+- [ ] **(b turn)** Verify: `.env` is in `.gitignore` ✅
+- [ ] **(b turn)** Test: `python -c "from dotenv import load_dotenv; load_dotenv(); import os; print('GEMINI_KEY:', 'SET' if os.getenv('GEMINI_API_KEY') else 'MISSING')"`
 
 ### 2.3 Create LangChain Directory Structure
-- [ ] **(b turn)** Create: `langchains/` directory
-- [ ] **(b turn)** Create: `langchains/__init__.py`
-- [ ] **(b turn)** Create: `langchains/resume_embed_chain.py`
+- [x] ✅ **(b turn)** Created: `langchains/` directory ✅
+- [x] ✅ **(b turn)** Created: `langchains/__init__.py` ✅
+- [x] ✅ **(b turn)** Created: `langchains/resume_embed_chain.py` ✅ (with free embeddings!)
 - [ ] **(b turn)** Create: `langchains/job_dna_chain.py`
 - [ ] **(b turn)** Create: `langchains/fit_analyzer_chain.py`
-- [ ] **(b turn)** Create: `db/` directory for vector stores
+- [x] ✅ **(b turn)** Created: `db/` directory for vector stores ✅
 
 ---
 
 ## ✅ Phase 3: Build Resume Embedding Chain
 
 ### 3.1 Create Resume Embed Chain
-- [ ] **(b turn)** Open: `langchains/resume_embed_chain.py`
-- [ ] **(b turn)** Write code to:
-  - Load resume from `data/resume.json`
-  - Extract skills, experience, projects
-  - Create text representation
-  - Use OpenAI embeddings to create vector
-  - Save to ChromaDB or FAISS
+- [x] ✅ **(b turn)** Opened: `langchains/resume_embed_chain.py` ✅ (already created!)
+- [x] ✅ **(b turn)** Code does:
+  - Loads resume from `resume.json`
+  - Extracts skills, experience, projects
+  - Creates text representation
+  - Uses **sentence-transformers FIRST** (free, local, no API!)
+  - Falls back to Gemini (free tier)
+  - OpenAI only if needed
 - [ ] **(b turn)** Test: `python langchains/resume_embed_chain.py`
-- [ ] **(b turn)** Verify: Vector stored in `db/chroma/` or `db/resume_vectors.index`
+- [ ] **(b turn)** Verify: Embedding works (will save to ChromaDB in next step)
 
 ### 3.2 Test Resume Embedding
 - [ ] **(b turn)** Create: `test_resume_embed.py`
