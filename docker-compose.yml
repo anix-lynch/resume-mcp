@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  resume-mcp:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./resume.json:/app/resume.json:ro
+      - ./rulebook.yaml:/app/rulebook.yaml:ro
+      - ./b_past_life_mcp:/app/b_past_life_mcp:ro
+      - ./northstar_mcp:/app/northstar_mcp:ro
+    environment:
+      - PORT=8000
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+

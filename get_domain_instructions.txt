@@ -1,0 +1,11 @@
+To get your static domain:
+
+1. Go to: https://dashboard.ngrok.com
+2. Click on "Domains" in the left sidebar
+3. You should see your reserved domain listed
+4. It will look like: yourname.ngrok-free.app
+
+OR if you haven't reserved one yet:
+1. Click "Reserve Domain" or "Add Domain"
+2. Choose a name (e.g., "anix-resume")
+3. Your domain will be: anix-resume.ngrok-free.app

@@ -1,0 +1,79 @@
+# Resume MCP Rulebook
+# Positive keywords: jobs must match at least one
+# Negative keywords: jobs matching these are filtered out
+
+positive_keywords:
+  # Core skills (high priority)
+  - "python"
+  - "machine learning"
+  - "ml"
+  - "data engineering"
+  - "etl"
+  - "ai"
+  - "artificial intelligence"
+  - "langchain"
+  - "fastapi"
+  - "multi-agent"
+  - "agent"
+  - "automation"
+  
+  # Tech stack
+  - "duckdb"
+  - "dbt"
+  - "supabase"
+  - "gcp"
+  - "google cloud"
+  - "aws"
+  - "lambda"
+  - "dynamodb"
+  
+  # Roles
+  - "ai architect"
+  - "data engineer"
+  - "ml engineer"
+  - "ai engineer"
+  - "data scientist"
+  - "automation engineer"
+  
+  # Desirable contexts
+  - "startup"
+  - "vc"
+  - "venture capital"
+  - "portfolio"
+  - "cross-border"
+  - "apac"
+  - "remote"
+
+negative_keywords:
+  # Exclude these roles
+  - "intern"
+  - "internship"
+  - "junior only"
+  - "entry level only"
+  - "0-2 years"
+  - "fresh graduate"
+  
+  # Exclude these tech (not in skill set)
+  - "java only"
+  - "c++ only"
+  - ".net only"
+  - "php only"
+  
+  # Exclude these contexts
+  - "on-site only"
+  - "no remote"
+  - "must relocate"
+  - "unpaid"
+  - "volunteer"
+  
+  # Exclude these domains (if not interested)
+  - "gaming only"
+  - "crypto only"
+  - "blockchain only"
+
+# Minimum positive matches required
+min_positive_matches: 1
+
+# Maximum negative matches allowed (0 = strict, 1+ = lenient)
+max_negative_matches: 0
+

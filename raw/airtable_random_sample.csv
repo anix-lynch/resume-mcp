@@ -1,0 +1,21 @@
+job_title,job_url,company,location,source,notes
+Data Engineer,https://airtable.com/jobs/data-engineer-at-stripe-123,Stripe,San Francisco, CA,Airtable,Payment processing data
+Senior Data Engineer,https://airtable.com/jobs/senior-data-engineer-at-github-456,GitHub,Remote,Airtable,Developer analytics
+Analytics Engineer,https://airtable.com/jobs/analytics-engineer-at-shopify-789,Shopify,Ottawa, Canada,Airtable,E-commerce metrics
+Data Architect,https://airtable.com/jobs/data-architect-at-salesforce-012,Salesforce,San Francisco, CA,Airtable,CRM data architecture
+ETL Developer,https://airtable.com/jobs/etl-developer-at-square-345,Square,San Francisco, CA,Airtable,Financial data pipelines
+Data Engineer,https://airtable.com/jobs/data-engineer-at-atlassian-678,Atlassian,Sydney, Australia,Airtable,Agile tool analytics
+Senior Data Engineer,https://airtable.com/jobs/senior-data-engineer-at-canva-901,Canva,Sydney, Australia,Airtable,Design tool metrics
+Analytics Engineer,https://airtable.com/jobs/analytics-engineer-at-intercom-234,Intercom,Dublin, Ireland,Airtable,Customer communication data
+Data Engineer,https://airtable.com/jobs/data-engineer-at-mongodb-567,MongoDB,New York, NY,Airtable,Database performance
+Data Architect,https://airtable.com/jobs/data-architect-at-databricks-890,Databricks,San Francisco, CA,Airtable,Big data architecture
+Data Engineer,https://airtable.com/jobs/data-engineer-at-hashicorp-111,HashiCorp,Remote,Airtable,Infrastructure as code
+Senior Data Engineer,https://airtable.com/jobs/senior-data-engineer-at-elastic-222,Elastic,Remote,Airtable,Search analytics
+Analytics Engineer,https://airtable.com/jobs/analytics-engineer-at-segment-333,Segment,San Francisco, CA,Airtable,Customer data platform
+ETL Developer,https://airtable.com/jobs/etl-developer-at-fivetran-444,Fivetran,Oakland, CA,Airtable,Data integration
+Data Engineer,https://airtable.com/jobs/data-engineer-at-census-555,Census,Remote,Airtable,Reverse ETL
+Senior Data Engineer,https://airtable.com/jobs/senior-data-engineer-at-meltano-666,Meltano,Remote,Airtable,Data orchestration
+Analytics Engineer,https://airtable.com/jobs/analytics-engineer-at-hevo-777,Hevo,Remote,Airtable,Data pipeline tools
+Data Architect,https://airtable.com/jobs/data-architect-at-snowflake-888,Snowflake,Remote,Airtable,Cloud data warehouse
+Data Engineer,https://airtable.com/jobs/data-engineer-at-clickhouse-999,ClickHouse,Remote,Airtable,Analytical database
+Senior Data Engineer,https://airtable.com/jobs/senior-data-engineer-at-posthog-000,PostHog,Remote,Airtable,Product analytics

@@ -1,0 +1,106 @@
+# B Past Life MCP Rulebook
+# For VC/PE/Finance/Real Estate roles (pre-tech era)
+# Positive keywords: jobs must match at least one
+# Negative keywords: jobs matching these are filtered out
+
+positive_keywords:
+  # Core VC/PE skills (high priority)
+  - "venture capital"
+  - "vc"
+  - "private equity"
+  - "pe"
+  - "investment"
+  - "fund management"
+  - "portfolio management"
+  - "deal sourcing"
+  - "due diligence"
+  - "m&a"
+  - "mergers and acquisitions"
+  
+  # Roles
+  - "managing partner"
+  - "investment partner"
+  - "principal"
+  - "investment director"
+  - "fund manager"
+  - "portfolio manager"
+  - "investment associate"
+  - "investment analyst"
+  
+  # Real Estate
+  - "real estate"
+  - "reit"
+  - "asset management"
+  - "property investment"
+  - "real estate fund"
+  
+  # Strategic/Advisory
+  - "strategic advisor"
+  - "strategic planning"
+  - "ecosystem"
+  - "startup ecosystem"
+  - "policy"
+  - "government relations"
+  
+  # Finance
+  - "financial modeling"
+  - "fund formation"
+  - "private placement"
+  - "capital markets"
+  - "investment banking"
+  
+  # Context
+  - "thailand"
+  - "asia"
+  - "southeast asia"
+  - "sea"
+  - "cross-border"
+  - "japan"
+  - "hong kong"
+  - "singapore"
+  - "startup"
+  - "startups"
+  - "accelerator"
+  - "incubator"
+
+negative_keywords:
+  # Exclude tech-only roles (this is pre-tech era)
+  - "software engineer"
+  - "developer"
+  - "programming"
+  - "coding"
+  - "python developer"
+  - "full stack developer"
+  - "data engineer"
+  - "ml engineer"
+  - "ai engineer"
+  - "only tech"
+  - "tech only"
+  
+  # Exclude junior roles
+  - "intern"
+  - "internship"
+  - "entry level"
+  - "0-2 years"
+  - "fresh graduate"
+  - "junior only"
+  
+  # Exclude these contexts
+  - "on-site only"
+  - "no remote"
+  - "must relocate to us"
+  - "unpaid"
+  - "volunteer"
+  
+  # Exclude these domains (if not interested)
+  - "crypto only"
+  - "blockchain only"
+  - "defi only"
+  - "trading only"
+
+# Minimum positive matches required
+min_positive_matches: 1
+
+# Maximum negative matches allowed (0 = strict, 1+ = lenient)
+max_negative_matches: 0
+

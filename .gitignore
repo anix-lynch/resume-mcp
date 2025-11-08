@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+ngrok.log
+server.log
+
+# Data files (optional - uncomment if you don't want to track CSV)
+# *.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel/
+
+# QR codes (regenerate as needed)
+resume_qr_code.png
+*.png
+*.jpg
+*.jpeg
+
+# Temporary files
+*.tmp
+*.bak
