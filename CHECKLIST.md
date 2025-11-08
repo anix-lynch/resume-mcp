@@ -61,7 +61,7 @@
 - [ ] **(b turn)** Confirm you get error (401 Unauthorized)
 
 ### 2.3 Test Public Authentication (Optional)
-- [ ] **(b turn)** Run: `curl -H "X-API-Key: 128438458c46cec459439b2adddca362db36b6e48bfe4e608d3ba1e25c5f32f4" https://01resumemcp.vercel.app/mcp`
+- [ ] **(b turn)** Run: `curl -H "X-API-Key: YOUR_PUBLIC_API_KEY" https://01resumemcp.vercel.app/mcp`
 - [ ] **(b turn)** Confirm you get JSON response (not error)
 
 ---
