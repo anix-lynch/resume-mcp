@@ -12,13 +12,13 @@
 - [ ] **(b turn)** Click **Add New**
 - [ ] **(b turn)** Add first variable:
   - **Key:** `OWNER_API_KEY`
-  - **Value:** `f91aab4749d6f8dcc7b91d8d983278fa8b9b4ba6944cf4c0a21632f6395b7115`
+  - **Value:** `YOUR_OWNER_API_KEY` (get from .env file or generate new)
   - **Environment:** Select **Production** (and Preview if you want)
   - Click **Save**
 - [ ] **(b turn)** Click **Add New** again
 - [ ] **(b turn)** Add second variable:
   - **Key:** `PUBLIC_API_KEY`
-  - **Value:** `128438458c46cec459439b2adddca362db36b6e48bfe4e608d3ba1e25c5f32f4`
+  - **Value:** `YOUR_PUBLIC_API_KEY` (get from .env file or generate new)
   - **Environment:** Select **Production** (and Preview if you want)
   - Click **Save**
 - [ ] **(b turn)** Verify both variables appear in the list
@@ -55,7 +55,7 @@
 
 ### 2.2 Test Owner Authentication (Optional)
 - [ ] **(b turn)** Open terminal
-- [ ] **(b turn)** Run: `curl -H "X-API-Key: f91aab4749d6f8dcc7b91d8d983278fa8b9b4ba6944cf4c0a21632f6395b7115" https://01resumemcp.vercel.app/mcp`
+- [ ] **(b turn)** Run: `curl -H "X-API-Key: YOUR_OWNER_API_KEY" https://01resumemcp.vercel.app/mcp`
 - [ ] **(b turn)** Confirm you get JSON response (not error)
 - [ ] **(b turn)** Run: `curl https://01resumemcp.vercel.app/mcp` (without key)
 - [ ] **(b turn)** Confirm you get error (401 Unauthorized)

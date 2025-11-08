@@ -14,7 +14,7 @@ Your Vercel deployment is **successful** but has **deployment protection** enabl
 ### Option 2: Disable via CLI
 
 ```bash
-export VERCEL_TOKEN="GQqvqi4jkzlPlJjRnwXOIeMk"
+export VERCEL_TOKEN="YOUR_VERCEL_TOKEN"
 vercel project update 01_resume_mcp --protection-bypass-secret=""
 ```
 
