@@ -21,6 +21,27 @@ env/
 *.log
 ngrok.log
 server.log
+docs/*.log
+docs/ngrok_url.txt
+
+# Credentials & Secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets/
+credentials/
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+data/*.db*
+
+# ngrok config
+.ngrok_domain
+ngrok_url.txt
 
 # Data files (optional - uncomment if you don't want to track CSV)
 # *.csv
@@ -47,3 +68,4 @@ resume_qr_code.png
 # Temporary files
 *.tmp
 *.bak
+.vercel

@@ -2,7 +2,7 @@
 # Restart only the Python server, keep ngrok running
 # This preserves your ngrok URL!
 
-PROJECT_DIR=$(dirname "$(realpath "$0")")
+PROJECT_DIR=$(cd "$(dirname "$(realpath "$0")")/.." && pwd)
 cd "$PROJECT_DIR"
 
 echo "🔄 Restarting server only (keeping ngrok running)..."
@@ -12,7 +12,7 @@ pkill -f server_http.py
 sleep 2
 
 # Start server again
-python3 server_http.py > server.log 2>&1 &
+python3 "$PROJECT_DIR/server_http.py" > "$PROJECT_DIR/docs/server.log" 2>&1 &
 SERVER_PID=$!
 echo "  ✅ Server restarted (PID: $SERVER_PID)"
 

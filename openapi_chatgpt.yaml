@@ -1,0 +1,175 @@
+openapi: 3.0.0
+info:
+  title: Resume MCP
+  version: 1.0.0
+  description: |
+    MCP server providing access to:
+    - Tech resume (skills, projects, experience)
+    - Job matching and ranking
+    - VC/PE/Finance resume (B Past Life)
+    - Northstar project portfolio
+    
+    Uses JSON-RPC 2.0 protocol over HTTP.
+
+servers:
+  - url: https://anix.ngrok.app
+    description: Production ngrok endpoint
+
+paths:
+  /mcp:
+    get:
+      operationId: healthCheck
+      summary: Health check and server info
+      description: Returns server capabilities and version
+      responses:
+        '200':
+          description: Server information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  protocol:
+                    type: string
+                    example: mcp
+                  version:
+                    type: string
+                    example: "2024-11-05"
+                  capabilities:
+                    type: object
+                  serverInfo:
+                    type: object
+    
+    post:
+      operationId: callMCP
+      summary: Call MCP method
+      description: |
+        Execute MCP protocol methods:
+        - initialize: Handshake with server
+        - tools/list: Get available tools
+        - tools/call: Execute a specific tool
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  description: JSON-RPC version
+                id:
+                  type: integer
+                  description: Request ID
+                  example: 1
+                method:
+                  type: string
+                  enum: [initialize, tools/list, tools/call]
+                  description: MCP method to call
+                params:
+                  type: object
+                  description: Method parameters
+                  properties:
+                    name:
+                      type: string
+                      description: Tool name (for tools/call method)
+                      enum:
+                        - get_resume_info
+                        - get_skills
+                        - match_jobs
+                        - get_shortlist
+                        - check_job_match
+                        - get_b_past_life_resume_info
+                        - check_b_past_life_job_match
+                        - get_northstar_info
+                        - list_projects
+                        - get_project
+                        - get_project_by_name
+                        - get_shared_assets
+                        - get_ai_agent_plan
+                        - search_projects
+                    arguments:
+                      type: object
+                      description: Tool-specific arguments
+            examples:
+              list_tools:
+                summary: List all available tools
+                value:
+                  jsonrpc: "2.0"
+                  id: 1
+                  method: "tools/list"
+                  params: {}
+              
+              get_skills:
+                summary: Get skills with minimum weight
+                value:
+                  jsonrpc: "2.0"
+                  id: 2
+                  method: "tools/call"
+                  params:
+                    name: "get_skills"
+                    arguments:
+                      min_weight: 7
+              
+              check_job_match:
+                summary: Check job match score
+                value:
+                  jsonrpc: "2.0"
+                  id: 3
+                  method: "tools/call"
+                  params:
+                    name: "check_job_match"
+                    arguments:
+                      job_title: "Machine Learning Engineer"
+                      job_description: "Python, TensorFlow, AWS, Docker"
+              
+              get_projects:
+                summary: List Northstar projects
+                value:
+                  jsonrpc: "2.0"
+                  id: 4
+                  method: "tools/call"
+                  params:
+                    name: "list_projects"
+                    arguments: {}
+      
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  id:
+                    type: integer
+                  result:
+                    type: object
+                    description: Method result
+                  error:
+                    type: object
+                    description: Error details (if failed)
+                    properties:
+                      code:
+                        type: integer
+                      message:
+                        type: string
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key for authentication
+
+security:
+  - ApiKeyAuth: []
+
